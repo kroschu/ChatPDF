@@ -2,8 +2,8 @@ version: '3'
 
 services:
   docgpt:
-    image: gpt4all_api
-    container_name: gpt4all_api
+    image: kroschu/chat-pdf-arm64
+    container_name: chat-pdf-llm
     restart: always
     ports:
       - '8501:8501'
