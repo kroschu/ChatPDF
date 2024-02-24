@@ -18,6 +18,8 @@ Chat History:
 Follow Up Input: {question}
 Standalone question:"""
 
+openai_key = "sk-foagi5JAcLUfX1DTuaNWourPmaPwzFODKoLaj4Up2Lc3CegC"
+openai_server = "https://apigptfree.rmrf.pp.ua/v1"
 CUSTOM_QUESTION_PROMPT = PromptTemplate.from_template(custom_template)
 
 # extracting text from pdf
@@ -46,8 +48,8 @@ def get_vectorstore(chunks):
     return vectorstore
 
 # generating conversation chain  
-def get_conversationchain(vectorstore):
-    llm=ChatOpenAI(temperature=0.2)
+def get_conversationchain(vectorstore, openai_key, openai_server):
+    llm = ChatOpenAI(temperature=0.2, api_key=openai_key, server=openai_server)
     memory = ConversationBufferMemory(memory_key='chat_history', 
                                       return_messages=True,
                                       output_key='answer') # using conversation buffer memory to hold past information
