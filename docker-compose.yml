@@ -2,8 +2,8 @@ version: '3'
 
 services:
   docgpt:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: gpt4all_api
+    container_name: gpt4all_api
+    restart: always
     ports:
       - '8501:8501'
